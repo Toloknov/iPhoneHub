@@ -1,0 +1,4 @@
+@import "./layout.scss";
+
+@include font-face("Manrope", "../fonts/Manrope-Regular.ttf", 500, normal);
+@include font-face("Manrope", "../fonts/Manrope-SemiBold.ttf", 600, normal);

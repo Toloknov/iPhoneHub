@@ -1,0 +1,99 @@
+@import "../../assets/styles/layout.scss";
+.footer {
+  background: var(--color-block);
+  padding: 50px 0;
+  & .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &_about {
+    display: flex;
+  }
+  &_logo {
+    display: flex;
+    align-items: center;
+    &-svg {
+    }
+  }
+  &_list {
+    display: flex;
+    align-items: center;
+    &-nav {
+      margin-left: 70px;
+    }
+    &-item {
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &-link {
+      font-size: 12px;
+      transition: 0.3s;
+      @include hover {
+        color: var(--color-text-w-hover);
+      }
+    }
+  }
+  &_info {
+    align-self: center;
+  }
+  &_address {
+    color: var(--color-text-w);
+    &-point {
+      margin-bottom: 20px;
+      position: relative;
+      max-width: 200px;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        top: 3px;
+        left: -30px;
+      }
+    }
+    &-time {
+      max-width: 200px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        top: 3px;
+        left: -30px;
+      }
+    }
+  }
+  &_contact {
+    margin-left: 100px;
+    &-number {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      & a {
+        margin-right: 10px;
+      }
+    }
+    &-email {
+      display: block;
+      margin-bottom: 20px;
+    }
+    &-social {
+      display: flex;
+      justify-content: flex-end;
+      & a {
+        margin-left: 10px;
+      }
+    }
+  }
+  &_info {
+    display: flex;
+    align-items: center;
+  }
+}

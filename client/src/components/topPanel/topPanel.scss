@@ -1,0 +1,112 @@
+@import "../../assets/styles/variables.scss";
+.panel {
+  & .wrapper {
+    display: flex;
+  }
+  &_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_search {
+    flex-basis: 480px;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    &-input {
+      flex-basis: 375px;
+      border-radius: 7px;
+      padding: 10px 20px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+    }
+
+    &-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      border-radius: 7px;
+      border: 0;
+      background: var(--color-ui);
+      color: var(--color-text-w);
+      padding: 10px 15px;
+      & img {
+        padding-right: 15px;
+      }
+    }
+  }
+
+  &_social {
+    &-img {
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  &_tel {
+    display: flex;
+    align-items: center;
+    &-number {
+      color: #000;
+    }
+
+    &-image {
+      margin-right: 15px;
+    }
+  }
+  &_account {
+    &-btn {
+      background-color: transparent;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    &-img {
+    }
+  }
+  &_like {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    &-union {
+      position: relative;
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+    }
+    &-heard {
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      position: relative;
+    }
+    &-num {
+      position: absolute;
+      background: var(--color-ui);
+      color: #fff;
+      font-size: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      top: -5px;
+      right: -10px;
+    }
+    &-img {
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

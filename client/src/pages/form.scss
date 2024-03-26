@@ -1,0 +1,84 @@
+@import "../assets/styles/layout.scss";
+.form {
+  max-width: 320px;
+  margin: 0 auto;
+  &_title {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  &_input {
+    outline: none;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid #063500;
+  }
+
+  &_btn {
+    border: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 6px;
+    background: var(--color-ui);
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+    margin-bottom: 20px;
+    @include hover {
+      background: #5c7249;
+    }
+  }
+  &_label {
+    display: block;
+    margin-bottom: 5px;
+    &-label {
+      display: inline;
+      margin-left: 10px;
+    }
+  }
+  &_error {
+    display: block;
+    color: red;
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+  &_next {
+    border: 0;
+    outline: 0;
+    background: var(--color-ui);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    &:hover {
+      background: #5c7249;
+    }
+  }
+  &_google {
+    border: 1px solid rgb(212, 210, 210);
+    outline: 0;
+    width: 100%;
+    color: #3e77aa;
+    padding: 10px 15px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      color: #4fa5f6;
+    }
+    & img {
+      margin-right: 10px;
+    }
+  }
+}

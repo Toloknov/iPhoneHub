@@ -1,0 +1,18 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/layout.scss";
+.button {
+  padding: 10px 25px;
+  background: var(--color-ui);
+  color: var(--color-text-w);
+  border-radius: 7px;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.4s;
+  @include hover {
+    background: #50633e;
+  }
+}
+.button:disabled {
+  background-color: grey;
+  cursor: auto;
+}

@@ -1,0 +1,36 @@
+@import "../../assets/styles/variables.scss";
+.service {
+  margin-bottom: 100px;
+  &_btn {
+    cursor: pointer;
+    padding: 15px 25px;
+    border: 0;
+    background-color: #fff;
+    &.active {
+      background: #fcfcfc;
+    }
+  }
+}
+.delivery {
+  display: none;
+  background: #fcfcfc;
+  &.active {
+    display: block;
+  }
+  &_lists {
+    max-width: 1000px;
+    margin-bottom: 100px;
+  }
+  &_list {
+    margin-bottom: 10px;
+  }
+}
+.payment {
+  width: 70%;
+  display: none;
+  background: #fcfcfc;
+  margin-bottom: 100px;
+  &.active {
+    display: block;
+  }
+}

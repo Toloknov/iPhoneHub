@@ -1,0 +1,63 @@
+.comment {
+  position: relative;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgb(233, 232, 232);
+  max-width: 50%;
+  margin-bottom: 10px;
+  &_wrap {
+    display: flex;
+  }
+
+  &_img {
+    max-width: 60px;
+    border-radius: 60%;
+  }
+
+  &_box {
+    margin-left: 10px;
+  }
+
+  &_name {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #159a4c;
+  }
+
+  &_time {
+    font-size: 10px;
+    text-wrap: nowrap;
+  }
+
+  &_text {
+    margin-left: 70px;
+  }
+  &_button {
+    padding: 0;
+  }
+  &_container {
+    margin-right: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+  }
+  &_star {
+    font-size: 25px;
+    color: #ccc;
+    &.on {
+      color: #ff9933;
+    }
+  }
+  &_cross {
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+  &_path {
+    transition: 0.3s;
+    &:hover {
+      fill: red;
+    }
+  }
+}

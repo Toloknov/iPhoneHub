@@ -1,0 +1,89 @@
+.toggler {
+  &_toggler {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    cursor: pointer;
+    transition: color 0.3s;
+    &:hover {
+      color: #f84147;
+    }
+    & img {
+      transition: 0.3s;
+      &.active {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &_names {
+    display: none;
+    padding: 0 10px;
+    &.active {
+      display: block;
+    }
+  }
+  &_name {
+    padding: 8px 8px 8px 32px;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+  }
+  &_input {
+    width: 0;
+    cursor: pointer;
+  }
+  &_label {
+    cursor: pointer;
+  }
+  &_fake {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 7.5px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    &.active {
+      border: 0;
+      background-color: #00a046;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        transform: rotate(35deg) translateX(8px) translateY(-3px);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 4px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        transform: rotate(-35deg) translateX(0px) translateY(8px);
+      }
+    }
+    &:hover {
+      border: 1px solid #000;
+    }
+  }
+  &_btn {
+    background-color: #367cc7;
+    color: #fff;
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+    &:hover {
+      background-color: #2275cd;
+    }
+  }
+}
