@@ -11,7 +11,7 @@ import passport from "passport";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
-const PORT = process.env.PORT ?? 8001;
+const PORT = process.env.PORT ?? 8000;
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
