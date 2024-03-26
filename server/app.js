@@ -23,7 +23,7 @@ app.use(cors({ origin: process.env.URL_CLIENT, credentials: true }));
 app.use("/", express.static("images"));
 app.use(
   session({
-    secret: "12312e1jgg3uy12763t1276e",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
