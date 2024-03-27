@@ -128,7 +128,7 @@ class UserService {
         brand,
       };
     } else {
-      const phone = await Phone.find(query).sort(
+      const phone = await Phone.find().sort(
         options.price && {
           discountedPrice: options.price === "за зростанням ціни" ? -1 : 1,
         }

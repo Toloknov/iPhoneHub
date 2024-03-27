@@ -16,7 +16,6 @@ import { Guarantee } from "./pages/guarantee";
 import AllService from "./services/allService";
 import { loadUserById } from "./store/user";
 import {
-  getLocalStorageToken,
   getLocalStorageUser,
 } from "./utils/localStorage";
 import { loadBasketList } from "./store/basket";
@@ -24,16 +23,13 @@ import { Checkout } from "./pages/checkout";
 import PrivateRouteBasket from "./components/privateRouteBasket";
 
 function App() {
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadColorList());
     dispatch(loadMemoryList());
     dispatch(loadCharacteristicList());
     dispatch(loadBasketList());
-    if (getLocalStorageToken()) {
-      AllService.checkAuth();
-    }
+    AllService.checkAuth();
     if (getLocalStorageUser()) {
       dispatch(loadUserById(getLocalStorageUser()));
     }

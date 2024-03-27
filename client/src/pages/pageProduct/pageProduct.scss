@@ -33,7 +33,7 @@
     height: 18px;
     border-radius: 50%;
     cursor: pointer;
-
+    border: 1px solid rgb(167, 163, 163);
     &-wrap {
       padding: 3px;
       border-radius: 50%;
@@ -47,10 +47,22 @@
     }
   }
   &_reviews {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
     &-text {
+      cursor: pointer;
       font-size: 12px;
+      color: #000;
       text-decoration: underline;
+    }
+  }
+  &_star {
+    font-size: 25px;
+    color: rgb(163, 161, 161);
+    &-gold {
+      font-size: 25px;
+      color: #ffd700;
     }
   }
   &_characteristic {
@@ -73,10 +85,6 @@
       & span {
         display: block;
       }
-    }
-    &-rammemory {
-    }
-    &-screen {
     }
   }
 }

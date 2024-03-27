@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./pageProduct.scss";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,27 +8,22 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import {
-  getColorArrById,
-  getColorById,
-  getColorStatus,
-} from "../../store/color";
-import { getMemoryById, getMemoryStatus } from "../../store/memory";
-import {
-  getCharacteristicById,
-  getCharacteristicStatus,
-} from "../../store/characteristic";
+import { getColorArrById } from "../../store/color";
+import { getMemoryById } from "../../store/memory";
+import { getCharacteristicById } from "../../store/characteristic";
 import { Button } from "../../ui/button";
 import Reviews from "../../ui/reviews/reviews";
 import { getIphone, getPhoneById, loadIphoneList } from "../../store/iphone";
 import { loadUserById } from "../../store/user";
 import { getLocalStorageUser } from "../../utils/localStorage";
 import { getColorFromUrl } from "../../utils/utils";
+import { getComment } from "../../store/comment";
 
 const PageProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
+  const comments = useSelector(getComment);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [btnState, setBtnState] = useState("characteristic");
   const iphone = useSelector(getPhoneById(id));
@@ -39,15 +34,8 @@ const PageProduct = () => {
   const characteristic = useSelector(
     getCharacteristicById(iphone?.characteristicsIphone)
   );
-  const isLoadingCharacteristic = useSelector(getCharacteristicStatus);
-  const isLoadingColor = useSelector(getColorStatus);
-  const isLoadingMemory = useSelector(getMemoryStatus);
-  const isLoading =
-    iphone &&
-    !isLoadingColor &&
-    !isLoadingMemory &&
-    !isLoadingCharacteristic &&
-    color;
+
+  const isLoading = iphone && colors && characteristic && color;
 
   useEffect(() => {
     dispatch(loadIphoneList());
@@ -79,6 +67,23 @@ const PageProduct = () => {
       navigate(`/product/${path._id}`);
     }
   };
+  const showReviews = () => {
+    window.scroll({
+      top: 800,
+      behavior: "smooth",
+    });
+    setBtnState("reviews");
+  };
+  const ratingSum =
+    comments && comments.length > 0
+      ? Math.ceil(
+          comments.reduce((acc, item) => acc + item.rating, 0) / comments.length
+        )
+      : 0;
+  const num = 5 - ratingSum;
+  const starts = [...Array(ratingSum)].map((start, index) => ++index);
+  const unStar = [...Array(num)].map((start, index) => ++index);
+  console.log(unStar, num);
   return !isLoading ? (
     <div className="spinner-container">
       <RotatingLines ariaLabel="three-dots-loading" strokeColor="#f6a9c3" />
@@ -138,8 +143,22 @@ const PageProduct = () => {
             <span className="product_price-bad">{iphone.price}&#8372;</span>
           </div>
           <div className="product_reviews">
-            &#11088;&#11088;&#11088;&#11088;&#11088;{" "}
-            <span className="product_reviews-text">Дивитися відгуки</span>{" "}
+            {starts &&
+              starts.map((i) => (
+                <span className="product_star-gold" key={i}>
+                  &#9733;
+                </span>
+              ))}
+            {unStar &&
+              unStar.map((i) => (
+                <span key={i} className="product_star">
+                  &#9733;
+                </span>
+              ))}
+
+            <span onClick={showReviews} className="product_reviews-text">
+              Дивитися відгуки
+            </span>
           </div>
           <div className="product_characteristic">
             <div className="product_colors">

@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../button";
 import "./reviews.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,14 +9,16 @@ import {
   loadCommentList,
   removeComment,
 } from "../../store/comment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../comment/comment";
 import { Rating } from "../../ui/rating";
 import { getUser } from "../../store/user";
 const Reviews = () => {
+  const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [data, setData] = useState("");
+  const auth = useSelector(getUser);
   const { id } = useParams();
   const dispatch = useDispatch();
   const errors = useSelector(getCommentError);
@@ -43,10 +45,15 @@ const Reviews = () => {
     setRating(0);
     setHover(0);
   };
-
+  const handleAuth = () => {
+    if (!auth) {
+      navigate("/login");
+    }
+  };
   useEffect(() => {
     dispatch(loadCommentList(id));
   }, [id]);
+  
   return (
     <>
       <form onSubmit={handleSubmit} className="reviews_form">
@@ -65,6 +72,7 @@ const Reviews = () => {
             className="reviews_area"
             name="area"
             value={data}
+            onClick={handleAuth}
             onChange={handleChange}
             id="area"
             rows="3"
