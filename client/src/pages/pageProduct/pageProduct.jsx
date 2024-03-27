@@ -81,8 +81,8 @@ const PageProduct = () => {
         )
       : 0;
   const num = 5 - ratingSum;
-  const starts = [...Array(ratingSum)].map((start, index) => ++index);
   const unStar = [...Array(num)].map((start, index) => ++index);
+  const starts = [...Array(ratingSum)].map((start, index) => ++index);
   console.log(unStar, num);
   return !isLoading ? (
     <div className="spinner-container">
