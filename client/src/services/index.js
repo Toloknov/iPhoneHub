@@ -3,7 +3,7 @@ import {
   setLocalStorageToken,
   setLocalStorageUser,
 } from "../utils/localStorage";
-export const API_URL = "https://iphonehub.onrender.com/";
+export const API_URL = "http://localhost:8000/api/";
 
 const api = axios.create({
   withCredentials: true,

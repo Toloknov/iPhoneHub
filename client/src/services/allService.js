@@ -104,7 +104,7 @@ export default class AllService {
       withCredentials: true,
     });
     if (data) {
-      setLocalStorageUser(JSON.stringify(data.user._id).replaceAll('"', ""));
+      setLocalStorageUser(JSON.stringify(data.user?._id).replaceAll('"', ""));
       setLocalStorageToken(data.accessToken);
     }
     return data;
